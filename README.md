@@ -1,6 +1,50 @@
 # Serving SentenceEmbedding Model with BentoML
 
-This is a sentence embedding service built with BentoML. It is meant to be hackable and educational
+This is a sentence embedding API service built with [BentoML](https://github.com/bentoml/BentoML). 
+It comes with the [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+sentence embedding model and provides a high-performance model
+server for generating embeddings over a REST API endpoint.
+
+
+# Usage: Docker
+
+The pre-built Docker Images for this project can be found on GitHub Container
+registry [here](https://github.com/bentoml/sentence-embedding-bento/pkgs/container/sentence-embedding-bento).
+
+Ensure you have [Docker](https://docs.docker.com/engine/install/) installed and running,
+launch the embedding service with the following command:
+
+```bash
+docker run --rm -p 3000:3000 ghcr.io/bentoml/sentence-embedding-bento:latest
+```
+
+Open http://0.0.0.0:3000 from your browser to send test requests from the Web UI.
+
+Alternatively, run the API client with Python or CURL command:
+
+```python
+from bentoml.client import Client
+
+client = Client.from_url("http://localhost:4000")
+
+samples = [
+  "The dinner was great!",
+  "The weather is great today!",
+  "I love fried chiclken sandwich!"
+]
+print(client.encode(samples))
+``` 
+
+```bash
+curl -X POST http://localhost:3000/encode \
+   -H 'Content-Type: application/json' \
+   -d '["hello world, how are you?", "I love fried chiclken sandwich!"]'
+```
+
+
+# Usage: Build Your Own
+
+It is meant to be hackable and educational
 for building your own text embedding service with BentoML.
 
 Get started by cloning this repository:
@@ -32,11 +76,6 @@ Start the embedding service:
 bentoml serve
 ```
 
-Open http://0.0.0.0:3000 from your browser to send test requests from the Web UI.
-
-Alternatively, run the API client with `python client.py`
-
-
 ## Building Bento
 
 Bento is the standardize distribution format, which is supported by an array of downstream
@@ -65,12 +104,32 @@ Possible next steps:
     $ bentoml push sentence-transformer-svc:scyvqxrxlc4rduqj [or bentoml build --push]
 ```
 
-## Deployment
+# Production Deployment
 
 BentoML provides a number of [deployment options](https://docs.bentoml.com/en/latest/concepts/deploy.html).
-Here we demonstrate the easiest way to set up a production-ready BentoML deployment via BentoCloud.
+The easiest way to set up a production-ready endpoint of your text embedding service is via BentoCloud,
+the serverless cloud platform built for BentoML, by the BentoML team.
+
+Next steps:
 
 1. Sign up for a BentoCloud account [here](https://www.bentoml.com/).
 2. Get an API Token, see instructions [here](https://docs.bentoml.com/en/latest/bentocloud/getting-started/ship.html#acquiring-an-api-token).
 3. Push your Bento to BentoCloud: `bentoml push sentence-transformer-svc:latest`
 4. Deploy via Web UI, see [Deploying on BentoCloud](https://docs.bentoml.com/en/latest/bentocloud/getting-started/ship.html#deploying-your-bento)
+
+
+# Customization
+
+Looking to use a different embedding model? Check out the [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard)
+and decide which embedding model works best for your use case. Modify code in the
+`import_model.py`, `st_runnable.py`, and `service.py` file to replace the model used.
+See [BentoML docs](https://docs.bentoml.org/) for advanced topics such as
+performance optimization, runtime configurations, serving with GPU, and adaptive
+batching.
+
+Looking For Image embeddings? Check out [CLIP-API-service](https://github.com/bentoml/CLIP-API-service).
+
+# Community
+
+👉 Join our [AI Application Developer community!](https://l.bentoml.com/join-slack)
+
