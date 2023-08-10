@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import bentoml
-import numpy as np
 
 from typing import TYPE_CHECKING, List
 
@@ -30,14 +29,18 @@ class SentenceTransformerRunnable(bentoml.Runnable):
         import torch
         
         # Tokenize sentences
-        encoded_input = self.tokenizer(sentences, padding=True, truncation=True, return_tensors='pt').to(self.device)
+        encoded_input = self.tokenizer(
+            sentences, padding=True, truncation=True, return_tensors='pt'
+        ).to(self.device)
 
         # Compute token embeddings
         with torch.no_grad():
             model_output = self.model(**encoded_input)
 
         # Perform pooling
-        sentence_embeddings = self.mean_pooling(model_output, encoded_input['attention_mask'])
+        sentence_embeddings = self.mean_pooling(
+            model_output, encoded_input['attention_mask']
+        )
 
         # Optional: Normalize embeddings if needed
         # sentence_embeddings = torch.nn.functional.normalize(sentence_embeddings, p=2, dim=1)

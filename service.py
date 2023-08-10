@@ -1,13 +1,10 @@
 from __future__ import annotations
 
 import bentoml
-import numpy as np
 from bentoml.io import JSON, NumpyNdarray
 from pydantic import RootModel
 
-from typing import List, TYPE_CHECKING, Dict
-
-from numpy._typing import NDArray
+from typing import List, TYPE_CHECKING
 
 from st_runnable import SentenceTransformerRunnable
 
