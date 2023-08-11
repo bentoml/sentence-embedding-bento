@@ -1,27 +1,27 @@
-# Serving SentenceEmbedding Model with BentoML
+# Sentence Embedding API Service
 
-This is a sentence embedding API service built with [BentoML](https://github.com/bentoml/BentoML). 
+This project is a sentence embedding API service built with [BentoML](https://github.com/bentoml/BentoML). 
 It comes with the [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
 sentence embedding model and provides a high-performance model
 server for generating text embeddings over a REST API endpoint.
 
-Looking For Image Embeddings? Check out [CLIP-API-service](https://github.com/bentoml/CLIP-API-service).
+Looking for Image Embeddings? Check out [CLIP-API-service](https://github.com/bentoml/CLIP-API-service).
 
-# Usage: Docker
+# Try it out!
 
 The pre-built Docker Images for this project can be found on GitHub Container
 registry [here](https://github.com/bentoml/sentence-embedding-bento/pkgs/container/sentence-embedding-bento).
 
-Ensure you have [Docker](https://docs.docker.com/engine/install/) installed and running,
-launch the embedding service with the following command:
+First, ensure you have [Docker](https://docs.docker.com/engine/install/) installed and running.
 
+Launch the embedding service locally with the following command:
 ```bash
 docker run --rm -p 3000:3000 ghcr.io/bentoml/sentence-embedding-bento:latest
 ```
 
 Open http://0.0.0.0:3000 from your browser to send test requests from the Web UI.
 
-Alternatively, run the API client with Python or CURL command:
+Alternatively, generate text embeddings with BentoML Python API client or CURL command:
 
 ```python
 from bentoml.client import Client
@@ -31,7 +31,7 @@ client = Client.from_url("http://localhost:4000")
 samples = [
   "The dinner was great!",
   "The weather is great today!",
-  "I love fried chiclken sandwich!"
+  "I love fried chicken sandwiches!"
 ]
 print(client.encode(samples))
 ``` 
@@ -39,16 +39,14 @@ print(client.encode(samples))
 ```bash
 curl -X POST http://localhost:3000/encode \
    -H 'Content-Type: application/json' \
-   -d '["hello world, how are you?", "I love fried chiclken sandwich!"]'
+   -d '["hello world, how are you?", "I love fried chicken sandwiches!"]'
 ```
 
+# User Guide
 
-# Usage: Build Your Own
-
-It is meant to be hackable and educational
-for building your own text embedding service with BentoML.
-
-Get started by cloning this repository:
+This repository is meant to be hackable and educational for building your own text 
+embedding service with BentoML and any embedding model of your choice. Get started
+by cloning this repository:
 
 ```bash
 git clone https://github.com/bentoml/sentence-embedding-bento.git
