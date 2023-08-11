@@ -14,10 +14,10 @@ bentoml build $GIT_ROOT -f $GIT_ROOT/bentofile.yaml --version $VERSION
 
 echo "🐳 Containerizing Bento.."
 bentoml containerize \
-	sentence-transformer-svc:$VERSION \
+	sentence-embedding-svc:$VERSION \
 	--opt label='org.opencontainers.image.source=https://github.com/bentoml/sentence-embedding-bento' \
-	--opt label='org.opencontainers.image.description="Sentence Transformer Model Serving"' \
-	--opt label='org.opencontainers.image.licenses="Apache 2"' \
+	--opt label='org.opencontainers.image.description="Sentence Embedding REST API Service"' \
+	--opt label='org.opencontainers.image.licenses="Apache-2.0"' \
 	-t ghcr.io/bentoml/sentence-embedding-bento:$VERSION \
 	-t ghcr.io/bentoml/sentence-embedding-bento:latest
 

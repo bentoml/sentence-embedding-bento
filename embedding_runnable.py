@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 MODEL_TAG="all-MiniLM-L6-v2:latest"
 TOKENIZER_TAG="all-MiniLM-L6-v2-tokenizer:latest"
 
-class SentenceTransformerRunnable(bentoml.Runnable):
+class SentenceEmbeddingRunnable(bentoml.Runnable):
     SUPPORTED_RESOURCES = ("nvidia.com/gpu", "cpu")
     SUPPORTS_CPU_MULTI_THREADING = True
     

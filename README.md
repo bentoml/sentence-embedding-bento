@@ -93,15 +93,15 @@ yoru development and production environments.
 ██████╔╝███████╗██║ ╚████║   ██║   ╚██████╔╝██║ ╚═╝ ██║███████╗
 ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚══════╝
 
-Successfully built Bento(tag="sentence-transformer-svc:scyvqxrxlc4rduqj").
+Successfully built Bento(tag="sentence-embedding-svc:scyvqxrxlc4rduqj").
 
 Possible next steps:
 
  * Containerize your Bento with `bentoml containerize`:
-    $ bentoml containerize sentence-transformer-svc:scyvqxrxlc4rduqj  [or bentoml build --containerize]
+    $ bentoml containerize sentence-embedding-svc:scyvqxrxlc4rduqj  [or bentoml build --containerize]
 
  * Push to BentoCloud with `bentoml push`:
-    $ bentoml push sentence-transformer-svc:scyvqxrxlc4rduqj [or bentoml build --push]
+    $ bentoml push sentence-embedding-svc:scyvqxrxlc4rduqj [or bentoml build --push]
 ```
 
 # Production Deployment
@@ -114,7 +114,7 @@ Next steps:
 
 1. Sign up for a BentoCloud account [here](https://www.bentoml.com/).
 2. Get an API Token, see instructions [here](https://docs.bentoml.com/en/latest/bentocloud/getting-started/ship.html#acquiring-an-api-token).
-3. Push your Bento to BentoCloud: `bentoml push sentence-transformer-svc:latest`
+3. Push your Bento to BentoCloud: `bentoml push sentence-embedding-svc:latest`
 4. Deploy via Web UI, see [Deploying on BentoCloud](https://docs.bentoml.com/en/latest/bentocloud/getting-started/ship.html#deploying-your-bento)
 
 
@@ -122,7 +122,7 @@ Next steps:
 
 Looking to use a different embedding model? Check out the [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard)
 and decide which embedding model works best for your use case. Modify code in the
-`import_model.py`, `st_runnable.py`, and `service.py` file to replace the model used.
+`import_model.py`, `embedding_runnable.py`, and `service.py` file to replace the model used.
 See [BentoML docs](https://docs.bentoml.org/) for advanced topics such as
 performance optimization, runtime configurations, serving with GPU, and adaptive
 batching.
