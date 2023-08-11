@@ -1,20 +1,21 @@
-# Sentence Embedding API Service
+# Sentence Embedding as a Service
 
 This project is a sentence embedding API service built with [BentoML](https://github.com/bentoml/BentoML). 
-It comes with the [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
-sentence embedding model and provides a high-performance model
-server for generating text embeddings over a REST API endpoint.
+With one command, you can launch a high-performance REST API server for generating text 
+embeddings. It comes with [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+as the default embedding model, but you can easily customize it to use other embedding models.
 
 Looking for Image Embeddings? Check out [CLIP-API-service](https://github.com/bentoml/CLIP-API-service).
 
 # Try it out!
 
-The pre-built Docker Images for this project can be found on GitHub Container
-registry [here](https://github.com/bentoml/sentence-embedding-bento/pkgs/container/sentence-embedding-bento).
+> The pre-built Docker Images for this project can be found on GitHub Container
+> registry [here](https://github.com/bentoml/sentence-embedding-bento/pkgs/container/sentence-embedding-bento).
 
 First, ensure you have [Docker](https://docs.docker.com/engine/install/) installed and running.
 
 Launch the embedding service locally with the following command:
+
 ```bash
 docker run --rm -p 3000:3000 ghcr.io/bentoml/sentence-embedding-bento:latest
 ```
@@ -26,7 +27,7 @@ Alternatively, generate text embeddings with BentoML Python API client or CURL c
 ```python
 from bentoml.client import Client
 
-client = Client.from_url("http://localhost:4000")
+client = Client.from_url("http://localhost:3000")
 
 samples = [
   "The dinner was great!",
@@ -52,23 +53,24 @@ docker run --gpu --rm -p 3000:3000 ghcr.io/bentoml/sentence-embedding-bento-gpu:
 # User Guide
 
 This repository is meant to be hackable and educational for building your own text 
-embedding service with BentoML and any embedding model of your choice. Get started
-by cloning this repository:
+embedding service with BentoML. Get started by forking and cloning this repository:
 
 ```bash
 git clone https://github.com/bentoml/sentence-embedding-bento.git
 cd sentence-embedding-bento
 ```
 
-## Install Dependencies
+### Install Dependencies
 
-You will need Python 3.8 or above to run this example. Download dependencies via `pip`:
+You will need Python 3.8 or above to run this example.
+
+Download dependencies via `pip`:
 
 ```bash
 pip install -U -r ./requirements.txt
 ```
 
-## Import Model
+### Download Model
 
 ```bash
 python import_model.py
@@ -76,14 +78,14 @@ python import_model.py
 
 This saves and versions the `all-MiniLM-L6-v2` in your local BentoML model store.
 
-## Run Embedding Service locally
+### Run Embedding Service locally
 
 Start the embedding service:
 ```
 bentoml serve
 ```
 
-## Building Bento
+### Building Bento
 
 Bento is the standardize distribution format, which is supported by an array of downstream
 deployment tools provided in the BentoML eco-system. It captures your service code, models, and
