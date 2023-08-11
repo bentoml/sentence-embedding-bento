@@ -42,6 +42,13 @@ curl -X POST http://localhost:3000/encode \
    -d '["hello world, how are you?", "I love fried chicken sandwiches!"]'
 ```
 
+To run model inference with GPU, install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+and use the GPU-enabled docker image instead:
+
+```bash
+docker run --gpu --rm -p 3000:3000 ghcr.io/bentoml/sentence-embedding-bento-gpu:latest
+```
+
 # User Guide
 
 This repository is meant to be hackable and educational for building your own text 
@@ -50,6 +57,7 @@ by cloning this repository:
 
 ```bash
 git clone https://github.com/bentoml/sentence-embedding-bento.git
+cd sentence-embedding-bento
 ```
 
 ## Install Dependencies

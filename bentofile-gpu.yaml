@@ -1,6 +1,6 @@
 service: "service:svc"
 labels:
-  support_gpu: false
+  support_gpu: true
 include:
 - "*.py"
 python:
@@ -8,3 +8,5 @@ python:
 models:
 - "all-MiniLM-L6-v2:latest"
 - "all-MiniLM-L6-v2-tokenizer:latest"
+docker:
+  cuda_version: "11.6.2"

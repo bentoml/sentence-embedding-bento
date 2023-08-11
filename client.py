@@ -5,6 +5,6 @@ if __name__ == "__main__":
     samples = [
         "The dinner was great!",
         "The weather is great today!",
-        "I love fried chiclken sandwich!"
+        "I love fried chicken sandwiches!"
     ]
     print(client.encode(samples))
