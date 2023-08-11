@@ -3,8 +3,9 @@
 This is a sentence embedding API service built with [BentoML](https://github.com/bentoml/BentoML). 
 It comes with the [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
 sentence embedding model and provides a high-performance model
-server for generating embeddings over a REST API endpoint.
+server for generating text embeddings over a REST API endpoint.
 
+Looking For Image Embeddings? Check out [CLIP-API-service](https://github.com/bentoml/CLIP-API-service).
 
 # Usage: Docker
 
@@ -126,8 +127,6 @@ and decide which embedding model works best for your use case. Modify code in th
 See [BentoML docs](https://docs.bentoml.org/) for advanced topics such as
 performance optimization, runtime configurations, serving with GPU, and adaptive
 batching.
-
-Looking For Image embeddings? Check out [CLIP-API-service](https://github.com/bentoml/CLIP-API-service).
 
 # Community
 
