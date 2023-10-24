@@ -9,6 +9,8 @@ Looking for Image Embeddings? Check out [CLIP-API-service](https://github.com/be
 
 # Try it out!
 
+To quickly get started, follow the instructions below or try this tutorial in Google Colab: [Sentence Embedding with BentoML](https://colab.research.google.com/github/bentoml/sentence-embedding-bento/blob/main/sentence_embedding.ipynb)
+
 > The pre-built Docker Images for this project can be found on GitHub Container
 > registry [here](https://github.com/bentoml/sentence-embedding-bento/pkgs/container/sentence-embedding-bento).
 
