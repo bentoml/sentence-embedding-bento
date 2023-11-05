@@ -26,5 +26,7 @@ bentoml build . -f bentofile-copy.yaml --version "$VERSION" --force
 echo "🐳 3. Containerizing Bento.."
 bentoml containerize \
 	"sentence-embedding-svc:$VERSION" \
+	--opt label='org.opencontainers.image.source=https://github.com/bentoml/sentence-embedding-bento' \
 	--opt label='org.opencontainers.image.description="Sentence Embedding REST API Service"' \
+	--opt label='org.opencontainers.image.licenses="Apache-2.0"' \
 	-t "$REPO/bentoml/sentence-embedding-bento:$VERSION"
