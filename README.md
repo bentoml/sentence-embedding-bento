@@ -115,6 +115,11 @@ Possible next steps:
     $ bentoml push sentence-embedding-svc:scyvqxrxlc4rduqj [or bentoml build --push]
 ```
 
+You can also try the simplified build script
+```bash
+GPU=true HF_MODEL=BAAI/bge-small-zh-v1.5 bash simple_build.sh
+```
+
 # Production Deployment
 
 BentoML provides a number of [deployment options](https://docs.bentoml.com/en/latest/concepts/deploy.html).
