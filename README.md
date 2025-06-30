@@ -1,3 +1,6 @@
+# This repo has been moved
+⚠️ Find latest version here: https://github.com/bentoml/BentoSentenceTransformers
+
 # Sentence Embedding as a Service
 
 This project is a sentence embedding API service built with [BentoML](https://github.com/bentoml/BentoML). 
